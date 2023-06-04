@@ -1,19 +1,34 @@
 import React from 'react';
 
 import Logo from './Logo';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { Nav } from 'reactstrap';
+import AnchorLink from './AnchorLink';
 
-const Hero = () => (
-  <div className="hero my-5 text-center" data-testid="hero">
-    <Logo testId="hero-logo" />
-    <h1 className="mb-4" data-testid="hero-title">
-      Next.js Sample Project
-    </h1>
+const Hero = () => {
+  const { user, isLoading } = useUser();
 
-    <p className="lead" data-testid="hero-lead">
-      This is a sample application that demonstrates an authentication flow for a Regular Web App, using{' '}
-      <a href="https://nextjs.org">Next.js</a>
-    </p>
-  </div>
-);
+  return (
+    <div className="hero my-5 text-center" data-testid="hero">
+      <h1 className="mb-4 text-2xl">Курсы чешского языка</h1>
+
+      <p className="lead my-4" data-testid="hero-lead">
+        Это платформа для изучения чешского языка, начиная от А2+
+      </p>
+
+      <div className="flex justify-center">
+        {!isLoading && !user && (
+          <AnchorLink
+            href="/api/auth/login"
+            className="btn btn-primary btn-block w-36"
+            tabIndex={0}
+            testId="navbar-login-mobile">
+            Log in
+          </AnchorLink>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Hero;
