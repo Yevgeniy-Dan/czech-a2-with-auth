@@ -8,27 +8,31 @@ import AnchorLink from './AnchorLink';
 const Hero = () => {
   const { user, isLoading } = useUser();
 
-  return (
-    <div className="hero my-5 text-center" data-testid="hero">
-      <h1 className="mb-4 text-2xl">Курсы чешского языка</h1>
+  if (!isLoading && !user) {
+    return (
+      <div className="hero my-5 text-center" data-testid="hero">
+        <div>
+          <h1 className="mb-4 text-2xl">Курсы чешского языка</h1>
 
-      <p className="lead my-4" data-testid="hero-lead">
-        Это платформа для изучения чешского языка, начиная от А2+
-      </p>
+          <p className="lead my-4" data-testid="hero-lead">
+            Это платформа для изучения чешского языка
+          </p>
 
-      <div className="flex justify-center">
-        {!isLoading && !user && (
-          <AnchorLink
-            href="/api/auth/login"
-            className="btn btn-primary btn-block w-36"
-            tabIndex={0}
-            testId="navbar-login-mobile">
-            Log in
-          </AnchorLink>
-        )}
+          <div className="flex justify-center">
+            <AnchorLink
+              href="/api/auth/login"
+              className="btn btn-primary btn-block w-36"
+              tabIndex={0}
+              testId="navbar-login-mobile">
+              Войти
+            </AnchorLink>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default Hero;

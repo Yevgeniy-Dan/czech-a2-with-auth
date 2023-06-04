@@ -34,7 +34,7 @@ const NavBar = () => {
                   Home
                 </PageLink>
               </NavItem>
-              {user && (
+              {/* {user && (
                 <>
                   <NavItem>
                     <PageLink href="/csr" className="nav-link" testId="navbar-csr">
@@ -52,7 +52,7 @@ const NavBar = () => {
                     </PageLink>
                   </NavItem>
                 </>
-              )}
+              )} */}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isLoading && !user && (
@@ -62,7 +62,7 @@ const NavBar = () => {
                     className="btn btn-primary btn-margin"
                     tabIndex={0}
                     testId="navbar-login-desktop">
-                    Log in
+                    Войти
                   </AnchorLink>
                 </NavItem>
               )}
@@ -104,7 +104,7 @@ const NavBar = () => {
                   className="btn btn-primary btn-block"
                   tabIndex={0}
                   testId="navbar-login-mobile">
-                  Log in
+                  Войти
                 </AnchorLink>
               </Nav>
             )}
