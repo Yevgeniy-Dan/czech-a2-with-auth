@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <div>
       {a2PlusCards.map(card => (
-        <MenuCard key={card.id} title={card.title} subtitle={card.desc} imageSrc={card.src} />
+        <MenuCard key={card.id} title={card.title} subtitle={card.desc} imageSrc={card.src} id={card.id} />
       ))}
     </div>
   );

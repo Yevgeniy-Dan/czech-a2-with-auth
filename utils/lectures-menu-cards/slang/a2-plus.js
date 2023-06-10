@@ -144,7 +144,7 @@ const cards = [
     src: 'https://czechbucket.s3.amazonaws.com/a2plus-icons/24.jpg'
   },
   {
-    id: 25,
+    id: `bonus`,
     title: 'Bonus',
     desc: 'Těžké vzory',
     src: 'https://czechbucket.s3.amazonaws.com/a2plus-icons/bonus.jpg'
