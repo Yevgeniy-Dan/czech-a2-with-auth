@@ -1,8 +1,16 @@
 import React from 'react';
 import PageLink from '../../../components/PageLink';
 import TrainingCard from '../../../components/UI/TrainingCard';
+import useAuth from '../../../hooks/useAuth';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const Slang = () => {
+  const isAuth = useAuth();
+
+  if (!isAuth) {
+    return <>{isAuth}</>;
+  }
+
   return (
     <div className="w-full">
       <div>

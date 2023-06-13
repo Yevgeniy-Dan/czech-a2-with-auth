@@ -2,9 +2,19 @@ import React from 'react';
 import { Collapse, Table } from 'reactstrap';
 import PageLink from '../../../../../components/PageLink';
 import useKeyOpen from '../../../../../hooks/useKeyOpen';
+import useAuth from '../../../../../hooks/useAuth';
+import FixingMaterialFrame from '../../../../../components/UI/FixingMaterialFrame';
+import PdfFrame from '../../../../../components/UI/PdfFrame';
+import GreenBox from '../../../../../components/UI/GreenBox';
+import LessonFarewell from '../../../../../components/UI/LessonFarewell';
 
 const One = () => {
-  const e = useKeyOpen(10);
+  const e = useKeyOpen(11);
+  const isAuth = useAuth();
+
+  if (!isAuth) {
+    return <>{isAuth}</>;
+  }
 
   return (
     <div>
@@ -23,7 +33,7 @@ const One = () => {
         <h1 className="text-center mt-4">Добрый день, дорогие друзья!</h1>
       </div>
 
-      <div className="border-2 border-gray-300 rounded-lg p-4">
+      <div className="frame">
         <p>
           <strong>
             <i>А теперь к темам А2</i>
@@ -71,7 +81,7 @@ const One = () => {
       </div>
 
       <div className="mt-12">
-        <h1>OPAKOVÁNÍ SLOVESA «BÝT»</h1>
+        <h2 className="text-center">OPAKOVÁNÍ SLOVESA «BÝT»</h2>
         <p>
           Sloveso <strong>"být"</strong> переводится как
           <strong>"есть".</strong>
@@ -222,16 +232,7 @@ const One = () => {
         </div>
 
         <div>
-          <div className="flex items-center border-2 border-gray-300 rounded-lg p-4 my-3">
-            <img
-              src="https://czechbucket.s3.amazonaws.com/a2plus-icons/note.jpg"
-              alt="Note"
-              className="w-14 h-auto mr-3"
-            />
-            <p className="mb-0">
-              <strong> Для закрепления материала, выполните 2 теста:</strong>
-            </p>
-          </div>
+          <FixingMaterialFrame text={'Для закрепления материала, выполните 2 теста:'} />
           <div className="my-3">
             <p>
               <strong>1. Doplňte formu slovesa být:</strong>
@@ -241,7 +242,7 @@ const One = () => {
                 Vzor: Helena ... studentka. Helena <strong>je</strong> studentka.
               </i>
             </p>
-            <PageLink href="https://7vovmq2cdjr.typeform.com/to/lJ5xHn3v" className={`test-link`}>
+            <PageLink href="https://7vovmq2cdjr.typeform.com/to/lJ5xHn3v" className={`custom-link`}>
               Тест 1. Doplňte formu slovesa být
             </PageLink>
           </div>
@@ -254,7 +255,7 @@ const One = () => {
                 Vzor: To ... stůl. To <strong>je</strong> stůl.
               </i>
             </p>
-            <PageLink href="https://7vovmq2cdjr.typeform.com/to/u5fh1hrZ" className={`test-link`}>
+            <PageLink href="https://7vovmq2cdjr.typeform.com/to/u5fh1hrZ" className={`custom-link`}>
               Тест 2. Doplňte tvary slovesa být
             </PageLink>
           </div>
@@ -333,7 +334,7 @@ const One = () => {
       </div>
 
       <div>
-        <h2>OPAKOVÁNÍ SLOVESA «MÍT»</h2>
+        <h2 className="text-center">OPAKOVÁNÍ SLOVESA «MÍT»</h2>
         <p>
           Глагол <strong>"mít"</strong> переводится как
           <strong>"иметь".</strong>
@@ -358,13 +359,15 @@ const One = () => {
           <p>
             <strong>Посмотрите видео.</strong>
           </p>
-          <iframe
-            width="949"
-            height="534"
-            src="https://www.youtube.com/embed/4HZ8upX4wTU"
-            title="l1 OPAKOVÁNÍ SLOVESA MÍT"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen></iframe>
+          <div className="video-container">
+            <iframe
+              width="949"
+              height="534"
+              src="https://www.youtube.com/embed/4HZ8upX4wTU"
+              title="l1 OPAKOVÁNÍ SLOVESA MÍT"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen></iframe>
+          </div>
         </div>
 
         <div>
@@ -377,8 +380,7 @@ const One = () => {
           <img
             src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-SLOVESA+%C2%ABM%C3%8DT%C2%BB.png"
             alt=""
-            width={450}
-            height="auto"
+            className="w-full"
           />
         </div>
 
@@ -443,32 +445,33 @@ const One = () => {
               <strong>Диалог A. Šimon a Matěj</strong>
             </figcaption>
           </figure>
-
-          <p>Šimon: Čau Matěji, tady Šimon.</p>
-          <p>Matěj: Čau, Šimone.</p>
-          <p>Š: Kde jsi? Madla a Ivana čekají. Ach jo, my dva jsme ale špatná návštěva.</p>
-          <p>M: Ale ne, Šimone, jsme dobrá návštěva. Spěchám. Jaká je adresa?</p>
-          <p>Š: Adresa je Nerudova ulice 2.</p>
-          <p>M: Jsem tam hned. Hele, Šimone, máš nějaký dárek?</p>
-          <p>Š: Mám víno.</p>
-          <p>M: Hm, já víno nemám.</p>
-          <p>Š: A ty, Matěji? Ty máš nějaký dárek?</p>
-          <p>M: Ano, mám. Mám moc dobrý dárek.</p>
-          <p>Š: Dobrý dárek? Co je dobrý dárek? Aha, rozumím. Máš dort!</p>
-          <p>M: Prosím? Dort? Jaký dort?</p>
-          <p>Š: Dobrý dárek je čokoládový dort, ne?</p>
-          <p>M: Ne. Dort nemám.</p>
-          <p>Š: Tak co máš?</p>
-          <p>M: Ten dárek je červený, malý a hezký.</p>
-          <p>Š: Prosím tě. Co to je? Je to červené víno?</p>
-          <p>M: Víno to není! Je to hezký dárek.</p>
-          <p>Š: Víno není dobrý dárek, jo?</p>
-          <p>M: Ne, víno není dobrý dárek. To říkám já.</p>
+          <div className="dialogue">
+            <p>Šimon: Čau Matěji, tady Šimon.</p>
+            <p>Matěj: Čau, Šimone.</p>
+            <p>Š: Kde jsi? Madla a Ivana čekají. Ach jo, my dva jsme ale špatná návštěva.</p>
+            <p>M: Ale ne, Šimone, jsme dobrá návštěva. Spěchám. Jaká je adresa?</p>
+            <p>Š: Adresa je Nerudova ulice 2.</p>
+            <p>M: Jsem tam hned. Hele, Šimone, máš nějaký dárek?</p>
+            <p>Š: Mám víno.</p>
+            <p>M: Hm, já víno nemám.</p>
+            <p>Š: A ty, Matěji? Ty máš nějaký dárek?</p>
+            <p>M: Ano, mám. Mám moc dobrý dárek.</p>
+            <p>Š: Dobrý dárek? Co je dobrý dárek? Aha, rozumím. Máš dort!</p>
+            <p>M: Prosím? Dort? Jaký dort?</p>
+            <p>Š: Dobrý dárek je čokoládový dort, ne?</p>
+            <p>M: Ne. Dort nemám.</p>
+            <p>Š: Tak co máš?</p>
+            <p>M: Ten dárek je červený, malý a hezký.</p>
+            <p>Š: Prosím tě. Co to je? Je to červené víno?</p>
+            <p>M: Víno to není! Je to hezký dárek.</p>
+            <p>Š: Víno není dobrý dárek, jo?</p>
+            <p>M: Ne, víno není dobrý dárek. To říkám já.</p>
+          </div>
         </div>
 
         <div>
-          <div>
-            <strong>1. Ответьте на вопросы:</strong>
+          <div className="questions">
+            <p className="font-bold">1. Ответьте на вопросы:</p>
             <p>a) Jaká je adresa?</p>
             <p>b) Jaký dárek má Šimon? </p>
             <p>c) Jaký dárek má Matěj?</p>
@@ -485,10 +488,12 @@ const One = () => {
         </div>
 
         <div>
-          <button onClick={() => e.toggleKey(1)}>Klíče</button>
+          <button onClick={() => e.toggleKey(1)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(1)} timeout={2000}>
             <section>
-              <div>
+              <div className="questions">
                 <p>
                   <strong>1. Ответьте на вопросы:</strong>
                 </p>
@@ -496,7 +501,7 @@ const One = () => {
                 <p>b) Víno</p>
                 <p>c) Červený (malý, hezký) dárek</p>
               </div>
-              <div>
+              <div className="questions">
                 <p>
                   <strong>2. Найдите все формы глагола "mít".</strong>
                 </p>
@@ -509,7 +514,7 @@ const One = () => {
                 <p>Já mám hezký dárek.</p>
                 <p>Mám moc hezký dárek.</p>
               </div>
-              <div>
+              <div className="questions">
                 <p>
                   <strong>3. Поработайте с найденными формами глагола "mít". Покажите его форму.</strong>
                 </p>
@@ -530,7 +535,7 @@ const One = () => {
 
       <div>
         <div>
-          <h1>ČASOVÁNÍ SLOVES</h1>
+          <h2 className="text-center">ČASOVÁNÍ SLOVES</h2>
 
           <p>
             <strong>Časování sloves </strong>- одна из самых важных тем, особенно неправильные глаголы.
@@ -541,13 +546,15 @@ const One = () => {
           <p>
             <strong>Посмотрите видео.</strong>
           </p>
-          <iframe
-            width="949"
-            height="534"
-            src="https://www.youtube.com/embed/w0stfF6nQtE"
-            title="l1 ČASOVÁNÍ SLOVES"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen></iframe>
+          <div className="video-container">
+            <iframe
+              width="949"
+              height="534"
+              src="https://www.youtube.com/embed/w0stfF6nQtE"
+              title="l1 ČASOVÁNÍ SLOVES"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen></iframe>
+          </div>
         </div>
         <div>
           <p>
@@ -559,8 +566,7 @@ const One = () => {
           <img
             src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-%C4%8CASOV%C3%81N%C3%8D+SLOVES.jpg"
             alt=""
-            width={450}
-            height="auto"
+            className="w-full"
           />
           <p>
             <strong>
@@ -571,17 +577,13 @@ const One = () => {
           <p>
             <i>Вы можете её сохранить и распечатать.</i>
           </p>
-          <a
-            href="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-Slang-Nepravideln%C3%A1_Slovesa.pdf"
-            target="blank">
-            Nepravidelná slovesa v českém jazyce
-          </a>
+          <PdfFrame title={' Nepravidelná slovesa v českém jazyce'} />
         </div>
       </div>
       <div>
         <div>
           <p>
-            <strong className="yb">Для закрепления материала выполните следующие упражнения:</strong>
+            <strong>Для закрепления материала выполните следующие упражнения:</strong>
           </p>
           <div>
             <p>
@@ -593,11 +595,10 @@ const One = () => {
             <img
               src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-jednotn%C3%A9ho_%C4%8D%C3%ADsla_1.jpg"
               alt=""
-              width={450}
-              height="auto"
+              className="w-full"
             />
-            <p>Vzor: Jde &#8594; Jít </p>
-            <ul>
+            <p className="italic">Vzor: Jde &#8594; Jít </p>
+            <ul className="list-decimal">
               <li>Běží &#8594;</li>
               <li>Cvičí &#8594;</li>
               <li>Letí &#8594;</li>
@@ -606,9 +607,11 @@ const One = () => {
               <li>Klečí &#8594;</li>
               <li>Hladí &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(2)}>Klíče</button>
+            <button onClick={() => e.toggleKey(2)} className="kliche-btn">
+              Klíče
+            </button>
             <Collapse isOpen={e.getValue(2)} timeout={2000}>
-              <div>
+              <div className="kliche-container">
                 <p>
                   Běží &#8594; <strong>Běžet</strong>
                 </p>
@@ -641,9 +644,13 @@ const One = () => {
                 množného čísla (my).
               </strong>
             </p>
-            <img src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-jednotn%C3%A9ho_%C4%8D%C3%ADsla_2.jpg" alt="" />
-            <p>Vzor: Měří tlak &#8594; Měříme tlak </p>
-            <ul>
+            <img
+              src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-jednotn%C3%A9ho_%C4%8D%C3%ADsla_2.jpg"
+              alt=""
+              className="w-full"
+            />
+            <p className="italic">Vzor: Měří tlak &#8594; Měříme tlak </p>
+            <ul className="list-decimal">
               <li>Píchá &#8594;</li>
               <li>Rehabilituje &#8594;</li>
               <li>Maže &#8594;</li>
@@ -652,9 +659,11 @@ const One = () => {
               <li>Vyvenčuje &#8594;</li>
               <li>Pere se &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(3)}>Klíče</button>
+            <button onClick={() => e.toggleKey(3)} className="kliche-btn">
+              Klíče
+            </button>
             <Collapse isOpen={e.getValue(3)} timeout={2000}>
-              <div>
+              <div className="kliche-container">
                 <p>
                   Píchá &#8594; <strong>Pícháme</strong>
                 </p>
@@ -684,26 +693,42 @@ const One = () => {
             <p>
               <strong>3. Na obrázku vidíme slovesa v infinitivu, přepište je do 3. osoby čísla množného (oni).</strong>
             </p>
+
+            <p className="italic">
+              U nepravidelných sloves můžete využít{' '}
+              <a href="https://cs.wiktionary.org/" target="blank" className="custom-link">
+                Wikislovník{' '}
+              </a>
+              nebo{' '}
+              <a href=" https://prirucka.ujc.cas.cz/ nebo" target="blank" className="custom-link">
+                Internetovou jazykovou příručku
+              </a>
+              , abyste se mohli dozvědět formu slovesa v 1. osobě čísla jednotného.
+            </p>
             <img
               src="https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-%C4%8D%C3%ADsla_mno%C5%BEn%C3%A9ho.jpg"
               alt=""
+              className="w-full"
             />
-            <p>Vzor: Jít na záchod &#8594; Jdou na záchod</p>
-            <ul>
+            <p className="italic">Vzor: Jít na záchod &#8594; Jdou na záchod</p>
+            <ul className="list-decimal">
               <li>Zamknout &#8594;</li>
               <li>Zamknout auto &#8594;</li>
               <li>Škrábat &#8594;</li>
               <li>Vytáhnout plevel &#8594;</li>
               <li>Vymačkat &#8594;</li>
+              <li>Vážit &#8594;</li>
               <li>Péci &#8594;</li>
               <li>Koupat se &#8594;</li>
               <li>Předklonit se &#8594;</li>
               <li>Bublat &#8594;</li>
               <li>Skákat na míči &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(4)}>Klíče</button>
+            <button onClick={() => e.toggleKey(4)} className="kliche-btn">
+              Klíče
+            </button>
             <Collapse isOpen={e.getValue(4)} timeout={2000}>
-              <div>
+              <div className="kliche-container">
                 <p>
                   Zamknout &#8594; <strong>Zamknou</strong>
                 </p>
@@ -752,27 +777,48 @@ const One = () => {
             </figcaption>
           </figure>
 
-          <p>Učitelka: Ivano, kde je Šimon?</p>
-          <p>Ivana: Šimon tady není, paní učitelko. On sportuje.</p>
-          <p>U: Prosím? My tady studujeme a Šimon sportuje?</p>
-          <p>I: Šimon rád studuje. Je dobrý student.</p>
-          <p>U: Nerozumím. Šimon je dobrý student a není tady?</p>
-          <p>I: Ne, není.</p>
-          <p>U: Prosím? A kde je?</p>
-          <p>I: On lyžuje.</p>
-          <p>U: Tak to ne! To není dobrý student. Tady je třída, tady nesportujeme, my tady studujeme.</p>
-
+          <div className="dialogue">
+            <p>
+              <strong>Učitelka:</strong> Ivano, kde je Šimon?
+            </p>
+            <p>
+              <strong>Ivana:</strong> Šimon tady není, paní učitelko. On sportuje.
+            </p>
+            <p>
+              <strong>U:</strong> Prosím? My tady studujeme a Šimon sportuje?
+            </p>
+            <p>
+              <strong>I:</strong> Šimon rád studuje. Je dobrý student.
+            </p>
+            <p>
+              <strong>U:</strong> Nerozumím. Šimon je dobrý student a není tady?
+            </p>
+            <p>
+              <strong>I:</strong> Ne, není.
+            </p>
+            <p>
+              <strong>U:</strong> Prosím? A kde je?
+            </p>
+            <p>
+              <strong>I:</strong> On lyžuje.
+            </p>
+            <p>
+              <strong>U:</strong> Tak to ne! To není dobrý student. Tady je třída, tady nesportujeme, my tady studujeme.
+            </p>
+          </div>
           <p>
             <strong>1. Vypište všechna slovesa (i když se opakují), která jste uslyšeli v dialogu.</strong>
           </p>
-          <button onClick={() => e.toggleKey(5)}>Klíče</button>
+          <button onClick={() => e.toggleKey(5)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(5)} timeout={2000}>
-            <p>
-              <i>
+            <div className="kliche-container">
+              <p className="italic">
                 Není, sportuje, studujeme, sportuje, rád studuje, je, nerozumím, je, není, není, je, lyžuje, není, je,
                 nesportujeme, studujeme.
-              </i>
-            </p>
+              </p>
+            </div>
           </Collapse>
         </div>
         <div>
@@ -785,27 +831,56 @@ const One = () => {
               <strong>Диалог C. Návštěva. Ivana a Šimon</strong>
             </figcaption>
           </figure>
-          <p>Ivana: Šimone, posaď se.</p>
-          <p>Šimon: Díky. Hele, mám tady tu hudbu.</p>
-          <p>I: Jo, nějakou českou, ne? Tu máš moc rád.</p>
-          <p>Š: No, hudba je česká, ale zpívají anglicky.</p>
-          <p>I: Aha. Moment, kde mám počítač? Jo, tady. Tak, moment. Aaa. Tady máš naši hudbu. Znáš to?</p>
-          <p>Š: Ne, neznám. To tady posloucháte?</p>
-          <p>I: Ano. Madla to ráda poslouchá. Zpěvačka je Američanka a pozor, nezpívá anglicky, ale francouzsky.</p>
-          <p>Š: To je super, já ale bohužel nemluvím francouzsky.</p>
-          <p>I: Aha, jo. Moment, tady, to je hezké.</p>
-          <p>Š: Aha. Jo, jo, to je dobré. Říkám ale, Ivano, nemluvím francouzsky a nezpívám!</p>
-          <p>I: Tak jo, rozumím, nezpíváš. Dobře. Šimone, co si dáš k pití? Máme tady víno, pivo, džus a vodu.</p>
-          <p>Š: Nečekáme na Matěje? Dobře. Dám si pivo. </p>
-          <p>I: Tak jo, jsem tady hned.</p>
+          <div className="dialogue">
+            <p>
+              <strong>Ivana:</strong> Šimone, posaď se.
+            </p>
+            <p>
+              <strong>Šimon:</strong> Díky. Hele, mám tady tu hudbu.
+            </p>
+            <p>
+              <strong>I:</strong> Jo, nějakou českou, ne? Tu máš moc rád.
+            </p>
+            <p>
+              <strong>Š:</strong> No, hudba je česká, ale zpívají anglicky.
+            </p>
+            <p>
+              <strong>I:</strong> Aha. Moment, kde mám počítač? Jo, tady. Tak, moment. Aaa. Tady máš naši hudbu. Znáš
+              to?
+            </p>
+            <p>
+              <strong>Š:</strong> Ne, neznám. To tady posloucháte?
+            </p>
+            <p>
+              <strong>I:</strong> Ano. Madla to ráda poslouchá. Zpěvačka je Američanka a pozor, nezpívá anglicky, ale
+              francouzsky.
+            </p>
+            <p>
+              <strong>Š:</strong> To je super, já ale bohužel nemluvím francouzsky.
+            </p>
+            <p>
+              <strong>I:</strong> Aha, jo. Moment, tady, to je hezké.
+            </p>
+            <p>
+              <strong>Š:</strong> Aha. Jo, jo, to je dobré. Říkám ale, Ivano, nemluvím francouzsky a nezpívám!
+            </p>
+            <p>
+              <strong>I:</strong> Tak jo, rozumím, nezpíváš. Dobře. Šimone, co si dáš k pití? Máme tady víno, pivo, džus
+              a vodu.
+            </p>
+            <p>
+              <strong>Š:</strong> Nečekáme na Matěje? Dobře. Dám si pivo.{' '}
+            </p>
+            <p>
+              <strong>I:</strong> Tak jo, jsem tady hned.
+            </p>
+          </div>
         </div>
 
         <div>
-          <p>
-            <strong>
-              Для закрепления темы "Časování sloves" выполните тесты и дополнительные (добровольные) упражнения:
-            </strong>
-          </p>
+          <FixingMaterialFrame
+            text={'Для закрепления темы "Časování sloves" выполните тесты и дополнительные (добровольные) упражнения:'}
+          />
 
           <p>
             <strong>1. Doplňte tvary přítomného času</strong>
@@ -814,11 +889,11 @@ const One = () => {
             <strong>a) -á konjugace: vzor dělat (infinitiv na -at / -át, -ávat, -ívat, -ývat, -évat)</strong>
           </p>
 
-          <a href="https://7vovmq2cdjr.typeform.com/to/hF2TqPbi" target="blank">
+          <a href="https://7vovmq2cdjr.typeform.com/to/hF2TqPbi" target="blank" className="custom-link">
             Тест 3. Doplňte tvary přítomného času
           </a>
 
-          <p className="gb">Внимание! Задание b) выполняется по желанию.</p>
+          <GreenBox text={'Внимание! Задание b) выполняется по желанию.'} />
           <p>
             <strong>b) -á konjugace: vzor dělat (infinitiv na -at / -át, -ávat, -ívat, -ývat, -évat)</strong>
           </p>
@@ -869,9 +944,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(6)}>Klíče</button>
+          <button onClick={() => e.toggleKey(6)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(6)} timeout={2000}>
-            <div>
+            <div className="kliche-container">
               <p>
                 <strong>Vítám</strong> tě u nás v Praze.
               </p>
@@ -914,9 +991,7 @@ const One = () => {
           </p>
         </div>
         <div>
-          <p>
-            <strong className="gb">Внимание! Задание d) выполняется по желанию.</strong>
-          </p>
+          <GreenBox text={'Внимание! Задание d) выполняется по желанию.'} />
           <p>
             <strong>d) -í konjugace: vzor mluvit (infinitiv na -it/-et/-ět)</strong>
           </p>
@@ -966,9 +1041,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(7)}>Klíče</button>
+          <button onClick={() => e.toggleKey(7)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(7)} timeout={2000}>
-            <div>
+            <div className="kliche-container">
               <p>
                 Proč <strong>odcházíte</strong> tak brzo?
               </p>
@@ -1008,7 +1085,7 @@ const One = () => {
               e) -e konjugace: vzor nést (infinitiv na -at / -át, -ít, -st, -zt, -ct + nepravidelná slovesa)
             </strong>
           </p>
-          <a href="https://7vovmq2cdjr.typeform.com/to/pAwTHKYP" target="blank">
+          <a href="https://7vovmq2cdjr.typeform.com/to/pAwTHKYP" target="blank" className="custom-link">
             Тест 5. Doplňte tvary přítomného času
           </a>
           <p className="gb">Внимание! Задание f) выполняется по желанию.</p>
@@ -1057,9 +1134,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(8)}>Klíče</button>
+          <button onClick={() => e.toggleKey(8)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(8)} timeout={2000}>
-            <div>
+            <div className="kliche-container">
               <p>
                 Naše zahrada na jaře krásně <strong>kvete.</strong>
               </p>
@@ -1091,12 +1170,12 @@ const One = () => {
           <p>
             <strong>g) -ne konjugace: vzor tisknout (infinitiv na -nout, -at, -ít)</strong>
           </p>
-          <a href="https://7vovmq2cdjr.typeform.com/to/c2mPehgX">Тест 6. Doplňte tvary přítomného času</a>
+          <a href="https://7vovmq2cdjr.typeform.com/to/c2mPehgX" className="custom-link">
+            Тест 6. Doplňte tvary přítomného času
+          </a>
         </div>
         <div>
-          <p className="gb">
-            <strong>Внимание! Задание h) выполняется по желанию.</strong>
-          </p>
+          <GreenBox text={'Внимание! Задание h) выполняется по желанию.'} />
           <p>
             <strong>h) -ne konjugace: vzor tisknout (infinitiv na -nout, -at, -ít)</strong>
           </p>
@@ -1138,9 +1217,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(9)}>Klíče</button>
+          <button onClick={() => e.toggleKey(9)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(9)} timeout={2000}>
-            <div>
+            <div className="kliche-container">
               <p>
                 Kdo <strong>vládne</strong> ve Velké Británii?{' '}
               </p>
@@ -1174,14 +1255,12 @@ const One = () => {
               i) -uje konjugace: vzor kupovat / -je konjugace: vzor mýt (infinitiv na -ovat, -át, -out, -ýt, -ít)
             </strong>
           </p>
-          <a href="https://7vovmq2cdjr.typeform.com/to/wtN9aQbx" target="blank">
+          <a href="https://7vovmq2cdjr.typeform.com/to/wtN9aQbx" target="blank" className="custom-link">
             Тест 7. Doplňte tvary přítomného času
           </a>
         </div>
         <div>
-          <p className="gb">
-            <strong>Внимание! Задание k) выполняется по желанию.</strong>
-          </p>
+          <GreenBox text={'Внимание! Задание k) выполняется по желанию.'} />
 
           <p>
             <strong>
@@ -1227,9 +1306,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(10)}>Klíče</button>
+          <button onClick={() => e.toggleKey(10)} className="kliche-btn">
+            Klíče
+          </button>
           <Collapse isOpen={e.getValue(10)} timeout={2000}>
-            <div>
+            <div className="kliche-container">
               <p>
                 <strong>Zuju</strong> se hned v předsíni.
               </p>
@@ -1257,9 +1338,7 @@ const One = () => {
         </div>
       </div>
 
-      <div>
-        <p>На этом пока всё. Увидимся на следующем уроке!</p>
-      </div>
+      <LessonFarewell />
     </div>
   );
 };
