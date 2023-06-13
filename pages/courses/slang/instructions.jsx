@@ -1,7 +1,14 @@
 import React from 'react';
 import PageLink from '../../../components/PageLink';
+import useAuth from '../../../hooks/useAuth';
 
 const Instructions = () => {
+  const isAuth = useAuth();
+
+  if (!isAuth) {
+    return <>{isAuth}</>;
+  }
+
   return (
     <div className="p-4">
       <h1>ИНСТРУКЦИЯ К УРОКАМ</h1>

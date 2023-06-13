@@ -1,6 +1,13 @@
 import React from 'react';
+import useAuth from '../../../hooks/useAuth';
 
 const WindowsKeyboard = () => {
+  const isAuth = useAuth();
+
+  if (!isAuth) {
+    return <>{isAuth}</>;
+  }
+
   return (
     <div>
       <h1>Как установить чешскую раскладку на Windows</h1>
