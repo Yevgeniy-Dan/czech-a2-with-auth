@@ -9,7 +9,7 @@ import GreenBox from '../../../../../components/UI/GreenBox';
 import LessonFarewell from '../../../../../components/UI/LessonFarewell';
 
 const One = () => {
-  const e = useKeyOpen(11);
+  const keys = useKeyOpen(11);
   const isAuth = useAuth();
 
   if (!isAuth) {
@@ -23,7 +23,7 @@ const One = () => {
         <p className="text-center"> Opakování sloves «být», «mít» a časování sloves </p>
         <div className="mt-4 flex justify-between items-center">
           <div></div>
-          <PageLink href="/admin/lectures/2" className={`flex flex-col items-end`}>
+          <PageLink href="./2" className={`flex flex-col items-end`}>
             <span className="text-blue-500 hover:underline">Следующий урок</span>
             <span className="mt-2">2. lekce</span>
           </PageLink>
@@ -271,7 +271,7 @@ const One = () => {
               <strong>Диалог B. Šimon a Jana</strong>
             </figcaption>
           </figure>
-          <div className="dialogue">
+          <div className="line-h-08-container">
             <p>
               <strong>Šimon:</strong> Ahoj Jano!
             </p>
@@ -445,7 +445,7 @@ const One = () => {
               <strong>Диалог A. Šimon a Matěj</strong>
             </figcaption>
           </figure>
-          <div className="dialogue">
+          <div className="line-h-08-container">
             <p>Šimon: Čau Matěji, tady Šimon.</p>
             <p>Matěj: Čau, Šimone.</p>
             <p>Š: Kde jsi? Madla a Ivana čekají. Ach jo, my dva jsme ale špatná návštěva.</p>
@@ -470,7 +470,7 @@ const One = () => {
         </div>
 
         <div>
-          <div className="questions">
+          <div className="line-h-08-container">
             <p className="font-bold">1. Ответьте на вопросы:</p>
             <p>a) Jaká je adresa?</p>
             <p>b) Jaký dárek má Šimon? </p>
@@ -488,12 +488,12 @@ const One = () => {
         </div>
 
         <div>
-          <button onClick={() => e.toggleKey(1)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(1)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(1)} timeout={2000}>
+          <Collapse isOpen={keys.getValue(1)} timeout={2000}>
             <section>
-              <div className="questions">
+              <div className="line-h-08-container">
                 <p>
                   <strong>1. Ответьте на вопросы:</strong>
                 </p>
@@ -501,7 +501,7 @@ const One = () => {
                 <p>b) Víno</p>
                 <p>c) Červený (malý, hezký) dárek</p>
               </div>
-              <div className="questions">
+              <div className="line-h-08-container">
                 <p>
                   <strong>2. Найдите все формы глагола "mít".</strong>
                 </p>
@@ -514,7 +514,7 @@ const One = () => {
                 <p>Já mám hezký dárek.</p>
                 <p>Mám moc hezký dárek.</p>
               </div>
-              <div className="questions">
+              <div className="line-h-08-container">
                 <p>
                   <strong>3. Поработайте с найденными формами глагола "mít". Покажите его форму.</strong>
                 </p>
@@ -577,7 +577,10 @@ const One = () => {
           <p>
             <i>Вы можете её сохранить и распечатать.</i>
           </p>
-          <PdfFrame title={' Nepravidelná slovesa v českém jazyce'} />
+          <PdfFrame
+            title={' Nepravidelná slovesa v českém jazyce'}
+            href={'https://czecha2bucket.s3.amazonaws.com/lekce_1/l1-Slang-Nepravideln%C3%A1_Slovesa.pdf'}
+          />
         </div>
       </div>
       <div>
@@ -607,11 +610,11 @@ const One = () => {
               <li>Klečí &#8594;</li>
               <li>Hladí &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(2)} className="kliche-btn">
+            <button onClick={() => keys.toggleKey(2)} className="kliche-btn">
               Klíče
             </button>
-            <Collapse isOpen={e.getValue(2)} timeout={2000}>
-              <div className="kliche-container">
+            <Collapse isOpen={keys.getValue(2)} timeout={2000}>
+              <div className="line-h-08-container">
                 <p>
                   Běží &#8594; <strong>Běžet</strong>
                 </p>
@@ -659,11 +662,11 @@ const One = () => {
               <li>Vyvenčuje &#8594;</li>
               <li>Pere se &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(3)} className="kliche-btn">
+            <button onClick={() => keys.toggleKey(3)} className="kliche-btn">
               Klíče
             </button>
-            <Collapse isOpen={e.getValue(3)} timeout={2000}>
-              <div className="kliche-container">
+            <Collapse isOpen={keys.getValue(3)} timeout={2000}>
+              <div className="line-h-08-container">
                 <p>
                   Píchá &#8594; <strong>Pícháme</strong>
                 </p>
@@ -724,11 +727,11 @@ const One = () => {
               <li>Bublat &#8594;</li>
               <li>Skákat na míči &#8594;</li>
             </ul>
-            <button onClick={() => e.toggleKey(4)} className="kliche-btn">
+            <button onClick={() => keys.toggleKey(4)} className="kliche-btn">
               Klíče
             </button>
-            <Collapse isOpen={e.getValue(4)} timeout={2000}>
-              <div className="kliche-container">
+            <Collapse isOpen={keys.getValue(4)} timeout={2000}>
+              <div className="line-h-08-container">
                 <p>
                   Zamknout &#8594; <strong>Zamknou</strong>
                 </p>
@@ -777,7 +780,7 @@ const One = () => {
             </figcaption>
           </figure>
 
-          <div className="dialogue">
+          <div className="line-h-08-container">
             <p>
               <strong>Učitelka:</strong> Ivano, kde je Šimon?
             </p>
@@ -809,11 +812,11 @@ const One = () => {
           <p>
             <strong>1. Vypište všechna slovesa (i když se opakují), která jste uslyšeli v dialogu.</strong>
           </p>
-          <button onClick={() => e.toggleKey(5)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(5)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(5)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(5)} timeout={2000}>
+            <div className="line-h-08-container">
               <p className="italic">
                 Není, sportuje, studujeme, sportuje, rád studuje, je, nerozumím, je, není, není, je, lyžuje, není, je,
                 nesportujeme, studujeme.
@@ -831,7 +834,7 @@ const One = () => {
               <strong>Диалог C. Návštěva. Ivana a Šimon</strong>
             </figcaption>
           </figure>
-          <div className="dialogue">
+          <div className="line-h-08-container">
             <p>
               <strong>Ivana:</strong> Šimone, posaď se.
             </p>
@@ -944,11 +947,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(6)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(6)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(6)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(6)} timeout={2000}>
+            <div className="line-h-08-container">
               <p>
                 <strong>Vítám</strong> tě u nás v Praze.
               </p>
@@ -1041,11 +1044,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(7)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(7)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(7)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(7)} timeout={2000}>
+            <div className="line-h-08-container">
               <p>
                 Proč <strong>odcházíte</strong> tak brzo?
               </p>
@@ -1134,11 +1137,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(8)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(8)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(8)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(8)} timeout={2000}>
+            <div className="line-h-08-container">
               <p>
                 Naše zahrada na jaře krásně <strong>kvete.</strong>
               </p>
@@ -1217,11 +1220,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(9)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(9)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(9)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(9)} timeout={2000}>
+            <div className="line-h-08-container">
               <p>
                 Kdo <strong>vládne</strong> ve Velké Británii?{' '}
               </p>
@@ -1306,11 +1309,11 @@ const One = () => {
               </tr>
             </tbody>
           </Table>
-          <button onClick={() => e.toggleKey(10)} className="kliche-btn">
+          <button onClick={() => keys.toggleKey(10)} className="kliche-btn">
             Klíče
           </button>
-          <Collapse isOpen={e.getValue(10)} timeout={2000}>
-            <div className="kliche-container">
+          <Collapse isOpen={keys.getValue(10)} timeout={2000}>
+            <div className="line-h-08-container">
               <p>
                 <strong>Zuju</strong> se hned v předsíni.
               </p>

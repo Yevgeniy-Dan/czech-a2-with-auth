@@ -96,10 +96,17 @@ table {
   font-style: italic;
 }
 
-.dialogue p,
-.questions p,
-.kliche-container p {
+.line-h-08-container p,
+.line-h-08-container div {
   line-height: 0.8;
+}
+
+.line-h-08-container div {
+  margin-bottom: 3rem;
+}
+
+hr {
+  margin: 2rem 0;
 }
 
 #__next {
