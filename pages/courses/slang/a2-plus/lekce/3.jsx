@@ -187,8 +187,10 @@ const Three = () => {
 
         <hr />
         <div className="text-center">
-          <p className="font-bold ">Pro procvičování slovní zásoby jsme připravili pro Vás kartičky na Quizlet:</p>
-          <p className="text-lg font-bold">Perfektivní a imperfektivní slovesa</p>
+          <p className="font-bold text-lg">
+            Pro procvičování slovní zásoby jsme připravili pro Vás kartičky na Quizlet:
+          </p>
+          <p className="text-2xl font-bold">Perfektivní a imperfektivní slovesa</p>
           <a href="https://quizlet.com/_cx8aof?x=1jqt&i=3zq2hw" target="blank" className="custom-btn">
             OTEVŘÍT KARTIČKY
           </a>
