@@ -18,8 +18,8 @@ const Three = () => {
   return (
     <div>
       <div className="container mx-auto bg-gray-100 rounded-lg p-6">
-        <h1 className="text-center text-3xl font-bold underline">2. lekce</h1>
-        <p className="text-center"> Minulý čas, se / si, ses / sis a modální slovesa </p>
+        <h1 className="text-center text-3xl font-bold underline">3. lekce</h1>
+        <p className="text-center"> Perfektivní a imperfektivní slovesa </p>
         <div className="mt-4 flex justify-between items-center">
           <PageLink href="./2" className={`flex flex-col items-start`}>
             <span className="text-blue-500 hover:underline">Предыдущий урок</span>
